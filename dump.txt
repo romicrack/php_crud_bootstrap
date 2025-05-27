@@ -1,0 +1,46 @@
+index.php message
+{
+     <?php
+            if (isset($_SESSION['message'])) {
+                # code...
+                ?>
+                <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show">
+                    <?= $_SESSION['message'] ?>
+                    <button type="button" data-dismiss="alert" class="btn-close" aria-label="Close">
+                        <span aria-hidden='true'>&time:</span>
+                    </button>
+                </div>
+                <?php
+            }
+            ?>
+}
+
+
+simpan.php
+<?php 
+    include("db.php");
+
+    if (isset($_POST['save_task'])) {
+
+        # code...
+        $nama =$_POST['nama'];
+        $tgl_lahir =$_POST['tanggal_lahir'];
+        $alamat =$_POST['alamat'];
+        $devisi =$_POST['devisi'];
+        $jender =$_POST['jender'];
+        $jabatan =$_POST['jabatan'];
+
+        $query="INSERT INTO table_karyawan(nama, tgl_lahir, alamat, devisi, jender, jabatan) VALUES('$nama','$tgl_lahir','$alamat','$devisi','$jender','$jabatan')";
+
+        $result=mysqli_query($conn, $query);
+        if (!$result) {
+            die("Query Failed");
+            # code...
+        } 
+
+
+        $_SESSION['message']= 'Task Save Successfully';
+        $_SESSION['message_type']= 'success';
+        header('Location: index.php');
+    }
+?>
