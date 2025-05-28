@@ -3,7 +3,13 @@
 include("db.php");
 
 // Inisialisasi variabel
-$nama = $alamat = $tgl_lahir = $jender = $devisi = $jabatan = '';
+$nama = '';
+$id_karyawan = '';
+$alamat = '';
+$tgl_lahir = '';
+$jender = '';
+$devisi = '';
+$jabatan = '';
 
 // Proses ambil data untuk edit
 if (isset($_GET['id'])) {
@@ -17,6 +23,7 @@ if (isset($_GET['id'])) {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         $nama = $row["nama"];
+        $id_karyawan = $row["id_karyawan"];
         $alamat = $row["alamat"];
         $tgl_lahir = $row["tgl_lahir"];
         $jender = $row["jender"];
@@ -30,6 +37,7 @@ if (isset($_GET['id'])) {
 if (isset($_POST['update'])) {
     $id = $_GET['id'];
     $nama = mysqli_real_escape_string($conn, $_POST['nama']);
+    $id_karyawan = mysqli_real_escape_string($conn, $_POST['id_karyawan']);
     $alamat = mysqli_real_escape_string($conn, $_POST['alamat']);
     $tgl_lahir = $_POST['tgl_lahir'];
     $jender = $_POST['jender'];
@@ -37,10 +45,11 @@ if (isset($_POST['update'])) {
     $jabatan = mysqli_real_escape_string($conn, $_POST['jabatan']);
 
     $query = "UPDATE table_karyawan SET 
-              nama=?, alamat=?, tgl_lahir=?, jender=?, devisi=?, jabatan=? 
+              nama=?, id_karyawan=?, alamat=?, tgl_lahir=?, jender=?, devisi=?, jabatan=? 
               WHERE id=?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssssssi", $nama, $alamat, $tgl_lahir, $jender, $devisi, $jabatan, $id);
+    $stmt->bind_param("sisssssi", $nama, $id_karyawan, $alamat, $tgl_lahir, $jender, $devisi, $jabatan, $id);
+
 
     if ($stmt->execute()) {
         $_SESSION['message'] = 'Update Berhasil';
@@ -66,6 +75,11 @@ include('include/header.php');
                     <div class="form-group">
                         <input type="text" name="nama" class="form-control"
                             value="<?php echo htmlspecialchars($nama); ?>" placeholder="Update Nama" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="number" name="id_karyawan" class="form-control"
+                            value="<?php echo htmlspecialchars($id_karyawan); ?>" placeholder="Update Id Karyawan"
+                            required>
                     </div><br>
 
                     <div class="form-group">

@@ -1,16 +1,14 @@
 <?php
 include("db.php");
-
 ?>
-
 
 <?php
 include("include/header.php")
     ?>
 
-<main class="container p-4">
+<main class="">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <!-- message -->
             <?php if (isset($_SESSION['message'])): ?>
                 <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show" id="flashMessage">
@@ -46,16 +44,17 @@ include("include/header.php")
                         <input type="text" name="nama" class="form-control" placeholder="Isi Nama Anda!" autofocus>
                         <br>
                     </div>
+                    <div class="form-group">
+                        <input type="text" name="id_karyawan" class="form-control"
+                            placeholder="Masukkan Id Karyawan Anda">
+                        <br>
+                    </div>
 
                     <div class="form-group">
                         <input type="date" name="tanggal_lahir" class="form-control"
                             placeholder="Isi Tanggal Lahir Anda!" autofocus><br>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <input type="text" name="jender" class="form-control" placeholder="Isi Jender Anda!" autofocus>
-                        <br>
-                    </div> -->
                     <div class="form-group">
                         <select name="jender" class="form-control" required>
                             <option value="">Jenis Kelamin</option>
@@ -83,16 +82,16 @@ include("include/header.php")
                 </form>
             </div>
 
-
-
-
         </div>
-        <div class="col-md-8">
+
+
+        <div class="col-md-10">
             <table class="table table-bordered">
-                <thead>
+                <thead class="text-center">
                     <tr>
                         <th>No. </th>
                         <th>Nama</th>
+                        <th>No Id Karyawan</th>
                         <th>Tanggal Lahir</th>
                         <th>Jenis Kelamin</th>
                         <th>Devisi</th>
@@ -111,6 +110,7 @@ include("include/header.php")
                         <tr>
                             <td><?php echo $row['id'] ?></td>
                             <td><?php echo $row['nama'] ?></td>
+                            <td><?php echo $row['id_karyawan'] ?></td>
                             <td><?php echo $row['tgl_lahir'] ?></td>
                             <td><?php echo $row['jender'] ?></td>
                             <td><?php echo $row['devisi'] ?></td>

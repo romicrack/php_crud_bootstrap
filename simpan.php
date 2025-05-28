@@ -22,11 +22,12 @@ if (isset($_POST['save_task'])) {
     } else {
         // Simpan data
         $insert = $conn->prepare("INSERT INTO table_karyawan 
-                                (nama, tgl_lahir, alamat, devisi, jender, jabatan) 
-                                VALUES (?, ?, ?, ?, ?, ?)");
+                                (nama, id_karyawan, tgl_lahir, alamat, devisi, jender, jabatan) 
+                                VALUES (?, ?, ?, ?, ?, ?, ?)");
         $insert->bind_param(
-            "ssssss",
+            "sisssss",
             $_POST['nama'],
+            $_POST['id_karyawan'],
             $_POST['tanggal_lahir'],
             $_POST['alamat'],
             $_POST['devisi'],
