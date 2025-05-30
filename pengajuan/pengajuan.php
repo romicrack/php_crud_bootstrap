@@ -66,7 +66,8 @@ Kendala: tidak bisa masuk sistem"></textarea>
                                         <a href="pengajuan_edit.php?id_pengajuan=<?php echo $row['id_pengajuan']; ?>"
                                             class="btn btn-warning">Edit</a>
                                         <div style="margin: 2px;"></div>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="pengajuan_delete.php?id_pengajuan=<?php echo $row['id_pengajuan'] ?>"
+                                            class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
