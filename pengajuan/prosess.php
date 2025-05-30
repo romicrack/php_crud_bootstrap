@@ -1,6 +1,6 @@
 <?php
 include('../db.php');
-session_start();
+// session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $text = $_POST['pengajuan'];
@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $aplikasi = '';
     $meja = '';
     $kendala = '';
+    $tindakan = '';
+    $t_status = '';
     $possible_kendala = [];
 
     $lines = explode("\n", $text);
@@ -46,11 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $aplikasi = 'Tidak Diketahui';
     if (empty($meja))
         $meja = '0000';
+    if (empty($tindakan))
+        $tindakan = '';
+    if (empty($t_status))
+        $t_status = 'open';
 
     // Simpan ke database
     $query = "INSERT INTO pengajuan (aplikasi, meja, kendala, tindakan, t_status) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "sss", $aplikasi, $meja, $kendala);
+    mysqli_stmt_bind_param($stmt, "sssss", $aplikasi, $meja, $kendala, $tindakan, $t_status);
 
     if (mysqli_stmt_execute($stmt)) {
         $_SESSION['message'] = 'Pengajuan berhasil disimpan!';

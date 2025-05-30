@@ -115,19 +115,18 @@ include("include/header.php")
                             <td><?php echo $row['jender'] ?></td>
                             <td><?php echo $row['devisi'] ?></td>
                             <td><?php echo $row['jabatan'] ?></td>
-                            <td><?php echo $row['alamat'] ?></td>
                             <td>
-                                <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
-                                    <i class="fas fa-marker"></i>
-                                </a>
-
-                                <div style="margin: 5px;"></div>
-
-                                <a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">
-                                    <i class="far fa-trash-alt"></i>
-                                </a>
-
-
+                                <textarea name="" id="" rows="1"><?php echo $row['alamat'] ?></textarea>
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary form-control">
+                                        <i class="fas fa-marker"></i>
+                                    </a>
+                                    <a href="delete.php?id=<?php echo $row['id'] ?>" class="form-control btn btn-danger">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                         <?php

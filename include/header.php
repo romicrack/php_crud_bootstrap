@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-secondary">
         <div class="container-fluid">
-            <a href="/index.php" class="navbar-brand">MYSQL PHP CRUD</a>
+            <a href="/php_crud_bootstrap/index.php" class="navbar-brand">MYSQL PHP CRUD</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 >
@@ -24,7 +24,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
-                <a href="../pengajuan/pengajuan.php" class="nav-link" aria-current="page">Pengajuan</a>
+                <a href="/php_crud_bootstrap/pengajuan/pengajuan.php" class="nav-link" aria-current="page">Pengajuan</a>
             </div>
         </div>
 
