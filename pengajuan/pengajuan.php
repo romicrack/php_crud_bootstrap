@@ -1,9 +1,10 @@
 <?php
-include("../db.php");
+// include("../db.php");
 ?>
 
 <?php
-include("../include/header.php");
+// include("../include/header.php");
+global $conn;
 ?>
 <!-- container mt-5 -->
 <div class="row">
@@ -82,5 +83,3 @@ Kendala: tidak bisa masuk sistem"></textarea>
         </div>
     </div>
 </div>
-
-<?php include('../include/footer.php'); ?>

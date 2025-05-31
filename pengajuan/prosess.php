@@ -71,64 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $text = $_POST['pengajuan'];
-
-//     // Identifikasi pola
-//     $aplikasi = '';
-//     $meja = '';
-//     $kendala = '';
-
-//     // Ekstrak informasi dari teks
-//     $lines = explode("\n", $text);
-
-//     foreach ($lines as $line) {
-//         $line = trim($line);
-
-//         // Identifikasi Aplikasi
-//         if (preg_match('/^(Aplikasi|APLIKASI|aplikasi|App|APP|app|Nama Aplikasi|Nama App|System|Sistem)[:\s]*(.*)/i', $line, $matches)) {
-//             $aplikasi = trim($matches[1]);
-//         }
-//         // Identifikasi Meja
-//         elseif (preg_match('/^(Nomor Meja|Meja|meja|MEJA|Meja Nomor|No Meja|no meja)[:\s]*(.*)/i', $line, $matches)) {
-//             $meja = trim($matches[1]);
-//         }
-//         // Identifikasi Kendala
-//         elseif (
-//             preg_match('/^(Kendala|kendala|Masalah|MASALAH|Issue|ISSUE|Permasalahan|permasalahan|Problem|PROBLEM)[:\s]*(.*)/i
-// ', $line, $matches)
-//         ) {
-//             $kendala = trim($matches[1]);
-//         }
-//         // Jika format tidak sesuai tapi mengandung kata kunci
-//         elseif (stripos($line, 'tidak bisa') !== false || stripos($line, 'error') !== false) {
-//             $kendala = $line;
-//         }
-//     }
-
-//     // Jika format tidak terdeteksi, ambil semua sebagai kendala
-// if (empty($aplikasi) && empty($meja) && !empty($text)) {
-//     $kendala = $text;
-//     $aplikasi = 'Tidak Diketahui';
-//     $meja = '0000';
-// }
-
-//     // Simpan ke database
-//     $query = "INSERT INTO pengajuan (aplikasi, meja, kendala) VALUES (?, ?, ?)";
-//     $stmt = mysqli_prepare($conn, $query);
-//     mysqli_stmt_bind_param($stmt, "sss", $aplikasi, $meja, $kendala);
-
-//     if (mysqli_stmt_execute($stmt)) {
-//         $_SESSION['message'] = 'Pengajuan berhasil disimpan!';
-//         $_SESSION['message_type'] = 'success';
-//     } else {
-//         $_SESSION['message'] = 'Gagal menyimpan pengajuan: ' . mysqli_error($conn);
-//         $_SESSION['message_type'] = 'danger';
-//     }
-
-//     mysqli_stmt_close($stmt);
-// }
-
 header('Location: pengajuan.php');
 exit();
 ?>

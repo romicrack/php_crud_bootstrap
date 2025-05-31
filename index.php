@@ -1,10 +1,17 @@
 <?php
 include("db.php");
+include("include/header.php");
+require_once("include/functions.php");
+
+if (empty($_SESSION['id_login'])) {
+    redirect('/login/login.php');
+} else {
+    redirect('dashboard.php');
+}
 ?>
 
 <?php
-include("include/header.php")
-    ?>
+?>
 
 <main class="">
     <div class="row">
