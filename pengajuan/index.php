@@ -8,6 +8,7 @@ include_once("../include/navbar.php");
 
 <body>
 
+
     <!-- container mt-5 -->
     <div class="row m-2">
         <div class="col-md-3">
@@ -88,9 +89,6 @@ Kendala: tidak bisa masuk sistem"></textarea>
     </div>
 
 
-    <?
-    include_once("../include/footer.php");
-
+    <?php
+    include('../include/footer.php');
     ?>
-
-</body>
