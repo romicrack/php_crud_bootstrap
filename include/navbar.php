@@ -1,6 +1,9 @@
 <?php
+include_once("header.php");
 $currentUserType = getUserType();
 ?>
+
+
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
@@ -11,8 +14,25 @@ $currentUserType = getUserType();
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../dashboard.php">Dashboard</a>
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user">User View</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pengajuan">Pengajuan</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Laporan
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Change Management</a></li>
+                        <li><a class="dropdown-item" href="#">Maintenance & Uji Coba</a></li>
+                    </ul>
+                </li>
+
 
                 <?php if ($currentUserType === 'admin' || $currentUserType === 'it'): ?>
                     <li class="nav-item dropdown">
@@ -56,3 +76,13 @@ $currentUserType = getUserType();
         </div>
     </div>
 </nav>
+<div class="container mt-3">
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show">
+            <?= $_SESSION['message'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php unset($_SESSION['message']);
+        unset($_SESSION['message_type']); ?>
+    <?php endif; ?>
+</div>

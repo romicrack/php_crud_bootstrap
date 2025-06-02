@@ -52,7 +52,7 @@ if ($userType === 'admin' || $userType === 'it') {
                         <p>Anda login sebagai: <span class="badge bg-primary"><?= $userType ?></span></p>
                         <p>Ini adalah dashboard untuk user biasa.</p>
                         <?php
-                        include_once 'pengajuan/pengajuan.php';
+                        // include_once 'pengajuan/pengajuan.php';
                         ?>
                     </div>
                 </div>

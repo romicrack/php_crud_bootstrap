@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="pengajuan.php" class="btn btn-secondary me-md-2">Kembali</a>
+                            <a href="index.php" class="btn btn-secondary me-md-2">Kembali</a>
                             <button type="submit" name="update" class="btn btn-primary">Update</button>
                         </div>
                     </form>

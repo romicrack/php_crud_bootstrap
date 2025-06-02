@@ -1,12 +1,6 @@
 <?php
-include("db.php");
-require_once("include/functions.php");
-
-if (empty($_SESSION['id_login'])) {
-    redirect('/login/login.php');
-} else {
-    redirect('dashboard.php');
-}
+include("../include/init.php");
+include("../include/navbar.php");
 ?>
 
 <main class="">
@@ -140,10 +134,3 @@ if (empty($_SESSION['id_login'])) {
         </div>
     </div>
 </main>
-
-
-
-
-<?php
-include("include/footer.php")
-    ?>

@@ -1,7 +1,6 @@
 <?php
 // session_start();
-include("db.php");
-
+include_once("../include/init.php");
 // Inisialisasi variabel
 $nama = '';
 $id_karyawan = '';
@@ -64,7 +63,7 @@ if (isset($_POST['update'])) {
     exit();
 }
 
-include('include/header.php');
+include_once('../include/header.php');
 ?>
 
 <div class="container p-4">
@@ -119,4 +118,4 @@ include('include/header.php');
     </div>
 </div>
 
-<?php include('include/footer.php'); ?>
+<?php include('../include/footer.php'); ?>
